@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 import { TIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '../../services/store';
-import { clearConstructor, postOrder } from '../../services/slices/burgerConstructorSlice';
+import { clearConstructor, postOrder } from '../../services/slices/burgerConstructor';
 import { useNavigate } from 'react-router-dom';
 
 

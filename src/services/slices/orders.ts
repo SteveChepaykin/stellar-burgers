@@ -16,7 +16,7 @@ const initialState: TOrdersState = {
     orders: []
 };
   
-export const ordersSlice = createSlice({
+export const orders = createSlice({
     name: 'orders',
     initialState,
     reducers: {},

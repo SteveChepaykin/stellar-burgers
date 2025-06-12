@@ -17,7 +17,7 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-
 import { RedirectedRoute } from '../protected-route';
 import { AppDispatch, useDispatch, useSelector } from '../../services/store';
 import { useEffect } from 'react';
-import { getUser } from '../../services/slices/userSlice';
+import { getUser } from '../../services/slices/user';
 
 const App = () =>{
   const dispatch: AppDispatch = useDispatch();

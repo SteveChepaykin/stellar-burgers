@@ -4,7 +4,7 @@ import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
 import { AppDispatch, useDispatch, useSelector } from '../../services/store';
 import { useParams } from 'react-router-dom';
-import { fetchBurgerIngredients } from '../../services/slices/burgerIngredientsSlice';
+import { fetchBurgerIngredients } from '../../services/slices/burgerIngredients';
 
 type OrderInfoProps = { type: 'feed' | 'profile' };
 export const OrderInfo: FC<OrderInfoProps> = ({ type }: OrderInfoProps) => {

@@ -4,10 +4,7 @@ import { orderBurgerApi } from '@api';
 
 export const postOrder = createAsyncThunk(
   'burgerConstructor/postOrder',
-  async (data: string[] ) => {
-    console.log(1);
-    return await orderBurgerApi(data);
-  }
+  async (data: string[] ) => await orderBurgerApi(data)
 )
 
 type ConstructorState = {
@@ -28,7 +25,7 @@ const initialState: ConstructorState = {
   orderModalData: null
 };
 
-export const burgerConstructorSlice = createSlice({
+export const burgerConstructor = createSlice({
   name: 'burgerConstructor',
   initialState,
   reducers: {
@@ -78,4 +75,4 @@ export const {
   removeIngredient,
   moveIngredient,
   clearConstructor
-} = burgerConstructorSlice.actions;
+} = burgerConstructor.actions;

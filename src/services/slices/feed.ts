@@ -3,13 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchOrders = createAsyncThunk<TFeedsResponse, void>(
   'feedSlice/fetchOrders',
-  async (_, { rejectWithValue }) => {
-    try {
-      return await getFeedsApi();
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
+  async () => await getFeedsApi()
 );
 
 type FeedState = {
@@ -25,7 +19,7 @@ const initialState: FeedState = {
 };
 
 
-export const feedSlice = createSlice({
+export const feed = createSlice({
   name: 'feedSlice',
   initialState,
   reducers: {},

@@ -4,13 +4,7 @@ import { TIngredient } from '@utils-types';
 
 export const fetchBurgerIngredients = createAsyncThunk<TIngredient[], void>(
   'burgerIngredients/fetchBurgerIngredients',
-  async (_, { rejectWithValue }) => {
-    try {
-      return await getIngredientsApi();
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
+  async () => await getIngredientsApi()
 );
 
 type IngredientsState = {
@@ -25,7 +19,7 @@ const initialState: IngredientsState = {
   error: null
 };
 
-export const burgerIngredientsSlice = createSlice({
+export const burgerIngredients = createSlice({
   name: 'burgerIngredients',
   initialState,
   reducers: {},

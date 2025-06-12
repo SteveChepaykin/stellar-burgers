@@ -21,7 +21,7 @@ export const BurgerConstructorElementUI =
           isUpDisabled={index === 0}
           isDownDisabled={index === totalItems - 1}
         />
-        <div className={`${styles.element_fullwidth} ml-2`}>
+        <div data-cy='burger-constructor-element-fullwidth' className={`${styles.element_fullwidth} ml-2`}>
           <ConstructorElement
             text={ingredient.name}
             price={ingredient.price}

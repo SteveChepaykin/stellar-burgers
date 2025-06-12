@@ -2,7 +2,7 @@ import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { AppDispatch, useDispatch, useSelector } from '../../services/store';
 import userEvent from '@testing-library/user-event';
-import { getUser, updateUser } from '../../services/slices/userSlice';
+import { getUser, updateUser } from '../../services/slices/user';
 import { TRegisterData } from '@api';
 import { TUser } from '@utils-types';
 

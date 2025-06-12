@@ -4,8 +4,8 @@ import { TOrder } from '@utils-types';
 import { FC, useEffect } from 'react';
 import { AppDispatch, useSelector } from '../../services/store';
 import { useDispatch } from 'react-redux';
-import { fetchOrders } from '../../services/slices/feedSlice';
-import { fetchBurgerIngredients } from '../../services/slices/burgerIngredientsSlice';
+import { fetchOrders } from '../../services/slices/feed';
+import { fetchBurgerIngredients } from '../../services/slices/burgerIngredients';
 
 export const Feed: FC = () => {
   const dispatch: AppDispatch = useDispatch();
