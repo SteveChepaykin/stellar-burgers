@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import styles from './ingredient-details.module.css';
 import { IngredientDetailsUIProps } from './type';
 
@@ -8,11 +8,7 @@ export const IngredientDetailsUI: FC<IngredientDetailsUIProps> = memo(
       ingredientData;
 
     return (
-      <div data-cy='modal'>
-        <div>
-          <h2 data-cy='modal-header'>Детали ингредиента</h2>
-          <button data-cy='close-modal-button' /*...*/ />
-        </div>
+      <div data-cy='modal' className={styles.content}>
         <img
           data-cy='ingredient-details-image'
           className={styles.img}

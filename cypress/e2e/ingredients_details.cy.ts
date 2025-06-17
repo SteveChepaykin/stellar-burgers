@@ -3,17 +3,28 @@ describe('Ingredient Details Modal', () => {
     cy.intercept('GET', 'api/ingredients', { fixture: 'ingredients.json' }).as('getIngredients');
     cy.visit('/');
     cy.wait('@getIngredients');
-    cy.get("[data-cy='ingredient-container']").first().click();
   });
 
-  it('should open and display ingredient details', () => {
-    cy.get("[data-cy='modal']").should('be.visible');
-    // cy.get("[data-cy='modal-header']").should('contain', 'Детали ингредиента');
-    // cy.get("[data-cy='ingredient-details-image']").should('be.visible');
-    // cy.get("[data-cy='ingredient-details-name']").should('not.be.empty');
+  afterEach(() => {
+    document.cookie.split(';').forEach(cookie => {
+      const eqPos = cookie.indexOf('=');
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    });
+  });
+
+  it('should open and display correct ingredient details', () => {
+    cy.get("[data-cy='ingredient-container']").first().find('p').last().invoke('text').as('ingredientName');
+    cy.get("[data-cy='ingredient-container']").first().click();
+
+    cy.get('@ingredientName').then((name) => {
+      cy.get("[data-cy='modal']").should('be.visible');
+      cy.get("[data-cy='ingredient-details-name']").should('have.text', name);
+    });
   });
 
   it('should close modal on close button', () => {
+    cy.get("[data-cy='ingredient-container']").first().click();
     cy.get("[data-cy='modal']").find("button").click();
     cy.get("[data-cy='modal']").should('not.exist');
   });
