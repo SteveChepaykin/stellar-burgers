@@ -32,4 +32,11 @@ describe('Order Details Modal', () => {
     cy.get("[data-cy='order-number']").should('contain', '71808');
     cy.get("[data-cy='order-status-message']").should('contain', 'Ваш заказ начали готовить');
   });
+
+  it('should clear the constructor', () => {
+    cy.get("[data-cy='place-order']").click();
+    cy.wait('@createOrder');
+    cy.get("[data-cy='modal']").find("button").click();
+    cy.get("[data-cy='noBuns']").should('have.length', 3);
+  });
 });

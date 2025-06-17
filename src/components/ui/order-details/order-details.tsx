@@ -22,6 +22,5 @@ export const OrderDetailsUI: React.FC<OrderDetailsUIProps> = ({
     <p className={`${styles.text} text text_type_main-default`}>
       Дождитесь готовности на орбитальной станции
     </p>
-    <button data-cy='close-modal-button' /*...*/ />
   </div>
 );
